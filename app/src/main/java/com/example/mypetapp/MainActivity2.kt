@@ -3,6 +3,7 @@ package com.example.mypetapp
 import android.annotation.SuppressLint
 import android.graphics.drawable.Drawable
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
@@ -47,7 +48,7 @@ class MainActivity2 : AppCompatActivity() {
 
 
     private fun feedPet() {
-        clean -= 5
+        clean -= 10
         hunger -= 10
         if (clean < 0) clean = 0
         if (hunger < 0) hunger = 0
@@ -57,7 +58,7 @@ class MainActivity2 : AppCompatActivity() {
     }
 
     private fun cleanPet() {
-        happy -= 5
+        happy -= 10
         if (happy < 0) happy = 0
         if (clean < 0) clean = 0
         if (clean < 100) clean += 10
@@ -67,8 +68,8 @@ class MainActivity2 : AppCompatActivity() {
     }
 
     private fun playPet() {
-        hunger += 5
-        clean -= 5
+        hunger += 10
+        clean -= 10
         if (clean < 0) clean = 0
         if (hunger > 100) hunger = 100
         if (happy < 0) happy = 0
@@ -95,6 +96,7 @@ class MainActivity2 : AppCompatActivity() {
 
         //Initialisation of  the Feed Button
         feedButton.setOnClickListener {
+            Log.i("buttonClicked","Feed button clicked")
                 feedPet()
                 Update()
             //make the image change
@@ -103,6 +105,7 @@ class MainActivity2 : AppCompatActivity() {
 
         //Initialisation of  the Play Button
         playButton.setOnClickListener {
+            Log.i("buttonClicked","Play button clicked")
                 playPet()
                 Update()
 
@@ -112,6 +115,7 @@ class MainActivity2 : AppCompatActivity() {
 
         //Initialisation of  the Clean  Button
         cleanButton.setOnClickListener {
+            Log.i("buttonClicked","Clean button clicked")
                 cleanPet()
                 Update()
 
